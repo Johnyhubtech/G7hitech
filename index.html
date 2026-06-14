@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>G7 Hitech Digital Solutions — World-Class Tech for Every Sector</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:       #0A2472;
+      --blue-mid:   #1A3A8F;
+      --blue-light: #2952CC;
+      --blue-pale:  #EEF2FF;
+      --gold:       #D4A017;
+      --gold-light: #F0C040;
+      --gold-pale:  #FDF6E3;
+      --white:      #FFFFFF;
+      --gray:       #6B7280;
+      --gray-light: #F3F4F6;
+      --text:       #111827;
+      --border:     #E5E7EB;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--text); }
+
+    /* ══ NAV ══ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 70px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-mark {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 800; color: var(--gold-light);
+      letter-spacing: -0.05em;
+    }
+    .nav-logo-text { font-size: 1rem; font-weight: 700; color: var(--blue); letter-spacing: -0.02em; }
+    .nav-logo-text span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--gray); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+    .nav-right { display: flex; gap: .75rem; align-items: center; }
+    .btn-nav-outline {
+      border: 1.5px solid var(--blue); color: var(--blue); background: transparent;
+      padding: .45rem 1.1rem; border-radius: 6px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: .8rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; transition: background .2s, color .2s;
+    }
+    .btn-nav-outline:hover { background: var(--blue); color: var(--white); }
+    .btn-nav-solid {
+      background: var(--gold); color: var(--blue); border: none;
+      padding: .45rem 1.25rem; border-radius: 6px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: .8rem; font-weight: 700;
+      cursor: pointer; text-decoration: none; transition: opacity .2s;
+    }
+    .btn-nav-solid:hover { opacity: .88; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--blue); border-radius: 2px; }
+    .mobile-menu {
+      display: none; position: fixed; top: 70px; left: 0; right: 0; z-index: 199;
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 1rem 5vw 1.5rem;
+    }
+    .mobile-menu a { display: block; padding: .7rem 0; color: var(--gray); font-size: .95rem; text-decoration: none; border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--blue); }
+    .mobile-cta { margin-top: .75rem; display: flex; gap: .75rem; flex-wrap: wrap; }
+
+    /* ══ PAGES ══ */
+    .page { display: none; padding-top: 70px; }
+    .page.active { display: block; }
+
+    /* ══ HERO ══ */
+    .hero {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 55%, #0d3080 100%);
+      min-height: calc(100vh - 70px);
+      display: flex; align-items: center;
+      padding: 5rem 5vw 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg-shape {
+      position: absolute; right: -8vw; top: -5%;
+      width: 55vw; height: 110%;
+      background: radial-gradient(ellipse at center, rgba(212,160,23,0.12) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero-grid-lines {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(212,160,23,0.15); border: 1px solid rgba(212,160,23,0.35);
+      color: var(--gold-light); font-size: .72rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .3rem .85rem; border-radius: 20px; margin-bottom: 1.5rem;
+    }
+    .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold-light); }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-weight: 800; line-height: 1.12;
+      color: var(--white); margin-bottom: 1.4rem;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em { font-style: normal; color: var(--gold-light); }
+    .hero p { font-size: 1.05rem; color: rgba(255,255,255,0.75); line-height: 1.75; margin-bottom: 2.25rem; max-width: 500px; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-hero-primary {
+      background: var(--gold); color: var(--blue);
+      padding: .85rem 2rem; border-radius: 8px;
+      font-weight: 700; font-size: .9rem; border: none; cursor: pointer;
+      text-decoration: none; display: inline-block; transition: opacity .2s;
+    }
+    .btn-hero-primary:hover { opacity: .88; }
+    .btn-hero-outline {
+      background: transparent; color: var(--white);
+      padding: .85rem 2rem; border-radius: 8px;
+      font-weight: 600; font-size: .9rem;
+      border: 1.5px solid rgba(255,255,255,0.35); cursor: pointer;
+      text-decoration: none; display: inline-block; transition: border-color .2s;
+    }
+    .btn-hero-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+    .hero-stats {
+      display: flex; gap: 2rem; margin-top: 3rem;
+      padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .h-stat-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold-light); }
+    .h-stat-label { font-size: .75rem; color: rgba(255,255,255,.55); margin-top: .2rem; }
+
+    /* Hero right panel */
+    .hero-visual {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 2rem;
+    }
+    .hero-visual-title {
+      font-size: .7rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.25rem;
+    }
+    .sector-chips { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .sector-chip {
+      display: flex; align-items: center; gap: .5rem;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px; padding: .55rem .9rem;
+      font-size: .8rem; color: rgba(255,255,255,.85); font-weight: 500;
+      transition: background .2s, border-color .2s;
+    }
+    .sector-chip:hover { background: rgba(212,160,23,0.15); border-color: rgba(212,160,23,.4); }
+    .sector-chip span { font-size: 1rem; }
+    .hero-divider { margin: 1.5rem 0; border: none; border-top: 1px solid rgba(255,255,255,0.08); }
+    .hero-globe-text { font-size: .8rem; color: rgba(255,255,255,.5); text-align: center; }
+    .hero-globe-text strong { color: var(--gold-light); }
+
+    /* ══ SECTION BASE ══ */
+    .sec { padding: 5.5rem 5vw; }
+    .sec-alt { background: var(--gray-light); }
+    .sec-blue { background: var(--blue); color: var(--white); }
+    .sec-blue-pale { background: var(--blue-pale); }
+    .eyebrow {
+      font-size: .72rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: .6rem;
+    }
+    .sec-blue .eyebrow { color: var(--gold-light); }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.025em; line-height: 1.18; margin-bottom: .85rem;
+    }
+    .sec-sub { color: var(--gray); max-width: 560px; line-height: 1.75; font-size: .95rem; }
+    .sec-blue .sec-sub { color: rgba(255,255,255,.65); }
+    .sec-head { margin-bottom: 3rem; }
+
+    /* ══ CARDS ══ */
+    .card-grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.5rem; }
+    .card-grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 1.25rem; }
+    .card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.75rem;
+      transition: box-shadow .25s, transform .25s, border-color .25s;
+    }
+    .card:hover { box-shadow: 0 8px 30px rgba(10,36,114,.09); transform: translateY(-3px); border-color: var(--blue-light); }
+    .card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 1.1rem;
+    }
+    .icon-blue { background: var(--blue-pale); }
+    .icon-gold { background: var(--gold-pale); }
+    .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; color: var(--blue); }
+    .card p { font-size: .85rem; color: var(--gray); line-height: 1.7; }
+
+    /* ══ SECTORS ══ */
+    .sectors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 1rem; }
+    .sector-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 1.5rem 1.25rem; text-align: center;
+      transition: background .25s, border-color .25s;
+    }
+    .sector-card:hover { background: rgba(212,160,23,0.12); border-color: rgba(212,160,23,.4); }
+    .sector-card .s-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .sector-card h4 { font-size: .9rem; font-weight: 700; color: var(--white); margin-bottom: .35rem; }
+    .sector-card p { font-size: .77rem; color: rgba(255,255,255,.5); line-height: 1.6; }
+
+    /* ══ SERVICES PAGE ══ */
+    .service-cat {
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 2.5rem; margin-bottom: 2rem;
+      background: var(--white);
+    }
+    .service-cat-head { display: flex; align-items: flex-start; gap: 1.25rem; margin-bottom: 1.75rem; }
+    .service-cat-icon {
+      width: 56px; height: 56px; min-width: 56px; border-radius: 14px;
+      background: var(--blue-pale); display: flex; align-items: center;
+      justify-content: center; font-size: 1.6rem;
+    }
+    .service-cat-icon.gold { background: var(--gold-pale); }
+    .service-cat h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--blue); margin-bottom: .3rem; }
+    .service-cat .cat-sub { font-size: .85rem; color: var(--gray); line-height: 1.65; }
+    .service-list { display: flex; flex-wrap: wrap; gap: .65rem; }
+    .service-tag {
+      background: var(--blue-pale); color: var(--blue);
+      border-radius: 6px; padding: .35rem .85rem;
+      font-size: .8rem; font-weight: 600;
+    }
+    .service-tag.gold-tag { background: var(--gold-pale); color: #7a5800; }
+
+    /* ══ ABOUT ══ */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-text p { color: var(--gray); line-height: 1.8; font-size: .95rem; margin-bottom: 1rem; }
+    .value-list { list-style: none; margin-top: 1.5rem; }
+    .value-list li {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1rem 0; border-bottom: 1px solid var(--border);
+    }
+    .value-list li:last-child { border-bottom: none; }
+    .v-dot { width: 10px; height: 10px; min-width: 10px; border-radius: 50%; background: var(--gold); margin-top: 5px; }
+    .value-list h4 { font-size: .9rem; font-weight: 700; color: var(--blue); margin-bottom: .2rem; }
+    .value-list p { font-size: .82rem; color: var(--gray); margin: 0; }
+    .about-panel {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+      border-radius: 20px; padding: 2.5rem; color: var(--white);
+    }
+    .about-panel h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--gold-light); }
+    .reach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .reach-item { background: rgba(255,255,255,0.07); border-radius: 10px; padding: 1.1rem; }
+    .reach-val { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--gold-light); }
+    .reach-label { font-size: .75rem; color: rgba(255,255,255,.55); margin-top: .2rem; }
+    .about-tagline { margin-top: 1.5rem; font-size: .85rem; color: rgba(255,255,255,.6); line-height: 1.7; border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.25rem; }
+
+    /* ══ CONTACT ══ */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
+    .c-info-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start; }
+    .c-icon {
+      width: 44px; height: 44px; min-width: 44px; border-radius: 10px;
+      background: var(--blue-pale); display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem;
+    }
+    .c-info-item h4 { font-size: .85rem; font-weight: 700; color: var(--blue); margin-bottom: .2rem; }
+    .c-info-item p { font-size: .82rem; color: var(--gray); }
+    .form-group { margin-bottom: 1rem; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group label { display: block; font-size: .78rem; font-weight: 600; color: var(--blue); margin-bottom: .4rem; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; border: 1.5px solid var(--border); border-radius: 8px;
+      padding: .7rem 1rem; font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: .875rem; outline: none; color: var(--text);
+      background: var(--white); transition: border-color .2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--blue); }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .btn-submit {
+      width: 100%; background: var(--blue); color: var(--white);
+      border: none; border-radius: 8px; padding: .9rem;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; font-weight: 700;
+      cursor: pointer; transition: opacity .2s;
+    }
+    .btn-submit:hover { opacity: .88; }
+    .form-success {
+      display: none; background: #ecfdf5; border: 1px solid #a7f3d0;
+      border-radius: 10px; padding: 1.5rem; text-align: center; margin-top: 1rem;
+    }
+    .form-success.show { display: block; }
+    .form-success h4 { color: #065f46; font-size: 1rem; font-weight: 700; margin-bottom: .3rem; }
+    .form-success p { color: #047857; font-size: .85rem; }
+
+    /* ══ CTA BANNER ══ */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+      border-radius: 20px; padding: 3.5rem; text-align: center; margin: 0 5vw 4rem;
+    }
+    .cta-banner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 800; color: var(--white); margin-bottom: .75rem; }
+    .cta-banner p { color: rgba(255,255,255,.7); font-size: .95rem; margin-bottom: 2rem; }
+    .cta-banner-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    /* ══ FOOTER ══ */
+    footer { background: var(--blue); color: rgba(255,255,255,.7); }
+    .footer-main {
+      padding: 4rem 5vw 2.5rem;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+    }
+    .footer-brand p { font-size: .85rem; line-height: 1.7; margin-top: .75rem; }
+    .footer-col h4 { font-size: .8rem; font-weight: 700; color: var(--white); letter-spacing: .05em; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-col a { display: block; font-size: .82rem; color: rgba(255,255,255,.55); text-decoration: none; margin-bottom: .55rem; transition: color .2s; }
+    .footer-col a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 1.5rem 5vw;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .75rem;
+    }
+    .footer-bottom p { font-size: .78rem; }
+    .footer-badge {
+      background: rgba(212,160,23,0.15); border: 1px solid rgba(212,160,23,.3);
+      color: var(--gold-light); font-size: .72rem; font-weight: 600;
+      padding: .3rem .75rem; border-radius: 20px;
+    }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links, .nav-right { display: none; }
+      .hamburger { display: flex; }
+      .form-row-2 { grid-template-columns: 1fr; }
+      .reach-grid { grid-template-columns: 1fr 1fr; }
+      .footer-main { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-stats { flex-wrap: wrap; gap: 1.25rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+    /* ══ WHATSAPP FLOAT BUTTON ══ */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 24px; z-index: 9999;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+      text-decoration: none; font-size: 1.7rem;
+      animation: wa-pulse 2.5s infinite;
+      transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
+      50% { box-shadow: 0 6px 36px rgba(37,211,102,0.7), 0 0 0 10px rgba(37,211,102,0.1); }
+    }
+    .wa-tooltip {
+      position: fixed; bottom: 36px; right: 90px; z-index: 9998;
+      background: var(--blue); color: var(--white);
+      font-size: .78rem; font-weight: 600; padding: .45rem .9rem;
+      border-radius: 20px; white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(0,0,0,.15);
+      opacity: 0; pointer-events: none; transition: opacity .3s;
+    }
+    .wa-float:hover + .wa-tooltip,
+    .wa-tooltip.show { opacity: 1; }
+
+    /* ══ GALLERY ══ */
+    .gallery-tabs { display: flex; gap: .65rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .g-tab {
+      padding: .45rem 1.1rem; border-radius: 20px;
+      border: 1.5px solid var(--border); background: transparent;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: .8rem; font-weight: 600;
+      color: var(--gray); cursor: pointer; transition: all .2s;
+    }
+    .g-tab.active, .g-tab:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+      gap: 1.25rem;
+    }
+    .gallery-item {
+      border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--gray-light);
+      transition: transform .25s, box-shadow .25s;
+      cursor: pointer;
+    }
+    .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(10,36,114,.12); }
+    .gallery-thumb {
+      height: 190px; display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; position: relative; overflow: hidden;
+    }
+    .gallery-thumb .g-overlay {
+      position: absolute; inset: 0; background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+      opacity: 0; transition: opacity .3s; display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--white);
+    }
+    .gallery-item:hover .g-overlay { opacity: 0.88; }
+    .gallery-info { padding: 1rem 1.1rem; }
+    .gallery-info h4 { font-size: .9rem; font-weight: 700; color: var(--blue); margin-bottom: .25rem; }
+    .gallery-info p { font-size: .78rem; color: var(--gray); }
+    .g-badge {
+      display: inline-block; font-size: .7rem; font-weight: 600;
+      padding: .2rem .6rem; border-radius: 10px; margin-bottom: .5rem;
+    }
+    .g-badge.blue { background: var(--blue-pale); color: var(--blue); }
+    .g-badge.gold { background: var(--gold-pale); color: #7a5800; }
+
+    /* ══ PRICING ══ */
+    .pricing-toggle { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; }
+    .toggle-label { font-size: .85rem; font-weight: 600; color: var(--gray); }
+    .toggle-switch {
+      width: 48px; height: 26px; background: var(--border); border-radius: 20px;
+      position: relative; cursor: pointer; transition: background .2s; border: none;
+    }
+    .toggle-switch.on { background: var(--blue); }
+    .toggle-knob {
+      position: absolute; top: 3px; left: 3px;
+      width: 20px; height: 20px; border-radius: 50%; background: var(--white);
+      transition: left .2s; pointer-events: none;
+    }
+    .toggle-switch.on .toggle-knob { left: 25px; }
+    .save-badge {
+      background: var(--gold-pale); color: #7a5800;
+      font-size: .72rem; font-weight: 700; padding: .2rem .6rem;
+      border-radius: 10px;
+    }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.5rem; }
+    .price-card {
+      border: 1.5px solid var(--border); border-radius: 16px; padding: 2rem;
+      background: var(--white); position: relative; transition: box-shadow .25s, border-color .25s;
+    }
+    .price-card:hover { box-shadow: 0 8px 30px rgba(10,36,114,.1); border-color: var(--blue-light); }
+    .price-card.featured {
+      border-color: var(--blue); background: var(--blue);
+      color: var(--white);
+    }
+    .price-card.featured h3, .price-card.featured .price-amount,
+    .price-card.featured .price-period, .price-card.featured .price-desc { color: var(--white); }
+    .price-card.featured .price-feature { color: rgba(255,255,255,.8); border-color: rgba(255,255,255,.15); }
+    .price-card.featured .price-feature::before { color: var(--gold-light); }
+    .featured-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: var(--blue); font-size: .72rem; font-weight: 700;
+      padding: .25rem .85rem; border-radius: 20px; white-space: nowrap;
+    }
+    .price-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--blue); margin-bottom: .4rem; }
+    .price-desc { font-size: .82rem; color: var(--gray); margin-bottom: 1.5rem; min-height: 40px; }
+    .price-amount { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 800; color: var(--blue); line-height: 1; }
+    .price-currency { font-size: 1.1rem; vertical-align: super; }
+    .price-period { font-size: .78rem; color: var(--gray); margin-top: .3rem; margin-bottom: 1.5rem; }
+    .price-features { list-style: none; margin-bottom: 1.75rem; }
+    .price-feature {
+      font-size: .83rem; color: var(--gray); padding: .55rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; gap: .6rem; align-items: flex-start;
+    }
+    .price-feature::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+    .price-feature.no::before { content: '✕'; color: #D1D5DB; }
+    .price-feature.no { opacity: .5; }
+    .btn-price-primary {
+      width: 100%; padding: .8rem; border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .875rem;
+      cursor: pointer; border: none; transition: opacity .2s;
+      background: var(--gold); color: var(--blue);
+    }
+    .btn-price-primary:hover { opacity: .88; }
+    .btn-price-outline {
+      width: 100%; padding: .8rem; border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .875rem;
+      cursor: pointer; background: transparent;
+      border: 1.5px solid var(--blue); color: var(--blue);
+      transition: background .2s, color .2s;
+    }
+    .btn-price-outline:hover { background: var(--blue); color: var(--white); }
+    .price-card.featured .btn-price-primary { background: var(--gold); color: var(--blue); }
+    .pricing-note { text-align: center; margin-top: 1.75rem; font-size: .82rem; color: var(--gray); }
+    .pricing-cats { display: flex; gap: .65rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .p-cat-btn {
+      padding: .4rem 1rem; border-radius: 20px;
+      border: 1.5px solid var(--border); background: transparent;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: .8rem; font-weight: 600;
+      color: var(--gray); cursor: pointer; transition: all .2s;
+    }
+    .p-cat-btn.active, .p-cat-btn:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="#" class="nav-logo" onclick="showPage('home'); return false;">
+    <div class="nav-logo-mark">G7</div>
+    <div class="nav-logo-text">Hitech <span>Digital</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" id="nav-home" class="active" onclick="showPage('home'); return false;">Home</a></li>
+    <li><a href="#" id="nav-about" onclick="showPage('about'); return false;">About</a></li>
+    <li><a href="#" id="nav-services" onclick="showPage('services'); return false;">Services</a></li>
+    <li><a href="#" id="nav-sectors" onclick="showPage('sectors'); return false;">Sectors</a></li>
+    <li><a href="#" id="nav-training" onclick="showPage('training'); return false;">Training</a></li>
+    <li><a href="#" id="nav-gallery" onclick="showPage('gallery'); return false;">Gallery</a></li>
+    <li><a href="#" id="nav-pricing" onclick="showPage('pricing'); return false;">Pricing</a></li>
+    <li><a href="#" id="nav-contact" onclick="showPage('contact'); return false;">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#" class="btn-nav-outline" onclick="showPage('about'); return false;">About Us</a>
+    <a href="#" class="btn-nav-solid" onclick="showPage('contact'); return false;">Get a Quote</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#" onclick="showPage('home'); toggleMenu(); return false;">Home</a>
+  <a href="#" onclick="showPage('about'); toggleMenu(); return false;">About</a>
+  <a href="#" onclick="showPage('services'); toggleMenu(); return false;">Services</a>
+  <a href="#" onclick="showPage('sectors'); toggleMenu(); return false;">Sectors</a>
+  <a href="#" onclick="showPage('training'); toggleMenu(); return false;">Training</a>
+  <a href="#" onclick="showPage('gallery'); toggleMenu(); return false;">Gallery</a>
+  <a href="#" onclick="showPage('pricing'); toggleMenu(); return false;">Pricing</a>
+  <a href="#" onclick="showPage('contact'); toggleMenu(); return false;">Contact</a>
+  <div class="mobile-cta">
+    <a href="#" class="btn-nav-outline" onclick="showPage('contact'); toggleMenu(); return false;">Get a Quote</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     HOME
+══════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-shape"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">Worldwide Technology Solutions</div>
+        <h1>Empowering Every Sector with <em>World-Class</em> Technology</h1>
+        <p>G7 Hitech Digital Solutions delivers enterprise-grade tech services — from cybersecurity and software development to device supply and repair — serving hospitals, banks, governments, schools, startups, and more across the globe.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn-hero-primary" onclick="showPage('services'); return false;">Explore Our Services</a>
+          <a href="#" class="btn-hero-outline" onclick="showPage('contact'); return false;">Talk to an Expert</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="h-stat-val">20+</div><div class="h-stat-label">Industry Sectors</div></div>
+          <div><div class="h-stat-val">500+</div><div class="h-stat-label">Clients Served</div></div>
+          <div><div class="h-stat-val">Global</div><div class="h-stat-label">Reach & Partnerships</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-title">Sectors We Serve</div>
+        <div class="sector-chips">
+          <div class="sector-chip"><span>🏥</span> Healthcare</div>
+          <div class="sector-chip"><span>🏦</span> Banking</div>
+          <div class="sector-chip"><span>🎓</span> Education</div>
+          <div class="sector-chip"><span>🌾</span> Agriculture</div>
+          <div class="sector-chip"><span>🏛️</span> Government</div>
+          <div class="sector-chip"><span>🚀</span> Startups</div>
+          <div class="sector-chip"><span>🏭</span> Manufacturing</div>
+          <div class="sector-chip"><span>⚖️</span> Legal</div>
+          <div class="sector-chip"><span>🛢️</span> Oil & Gas</div>
+          <div class="sector-chip"><span>🏗️</span> Construction</div>
+          <div class="sector-chip"><span>🛒</span> Retail</div>
+          <div class="sector-chip"><span>✈️</span> Aviation</div>
+        </div>
+        <hr class="hero-divider"/>
+        <div class="hero-globe-text">Delivering solutions from <strong>Nigeria to the World</strong> — wherever tech is needed, G7 Hitech is there.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="eyebrow">What We Do</div>
+      <div class="sec-title">One Partner. Every Tech Need.</div>
+      <p class="sec-sub">We bring together software, hardware, security, and strategy under one roof — so your organization never has to juggle multiple vendors.</p>
+    </div>
+    <div class="card-grid-3">
+      <div class="card">
+        <div class="card-icon icon-blue">💻</div>
+        <h3>Software & Web Development</h3>
+        <p>Custom websites, enterprise platforms, mobile apps, portals, dashboards, and e-commerce solutions built to your exact specifications.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">🔐</div>
+        <h3>Cybersecurity</h3>
+        <p>End-to-end security solutions — network protection, threat monitoring, vulnerability assessments, data encryption, and incident response.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🛠️</div>
+        <h3>Device Repair & Maintenance</h3>
+        <p>Professional repair of laptops, computers, servers, printers, and all digital devices. On-site and remote support available.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🖥️</div>
+        <h3>Device Supply & Sales</h3>
+        <p>Buying and selling of laptops, desktops, tablets, servers, networking equipment, and accessories — new, refurbished, and enterprise-grade.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">🤖</div>
+        <h3>AI & Digital Transformation</h3>
+        <p>AI-powered solutions, automation tools, digital literacy programs, and transformation roadmaps to future-proof your organization.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">☁️</div>
+        <h3>IT Infrastructure & Cloud</h3>
+        <p>Network setup, server management, cloud migration, IT support contracts, and managed services for businesses of all sizes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS TEASER -->
+  <section class="sec sec-blue">
+    <div class="sec-head">
+      <div class="eyebrow">Industries We Serve</div>
+      <div class="sec-title">Technology That Fits Every Sector</div>
+      <p class="sec-sub">Whether you run a hospital, a bank, a school, or a startup — G7 Hitech has the expertise and solutions to transform how you operate.</p>
+    </div>
+    <div class="sectors-grid">
+      <div class="sector-card"><div class="s-icon">🏥</div><h4>Healthcare</h4><p>Hospital management systems, patient portals, medical record security</p></div>
+      <div class="sector-card"><div class="s-icon">🏦</div><h4>Banking & Finance</h4><p>Fintech platforms, payment systems, cybersecurity, and compliance tools</p></div>
+      <div class="sector-card"><div class="s-icon">🎓</div><h4>Education</h4><p>E-learning platforms, student portals, digital classrooms, AI tutoring</p></div>
+      <div class="sector-card"><div class="s-icon">🌾</div><h4>Agriculture</h4><p>Farm management software, supply chain platforms, cooperative commerce</p></div>
+      <div class="sector-card"><div class="s-icon">🏛️</div><h4>Government</h4><p>E-governance solutions, public service portals, data management systems</p></div>
+      <div class="sector-card"><div class="s-icon">🚀</div><h4>Startups & SMEs</h4><p>MVP development, business tools, digital presence, and tech advisory</p></div>
+      <div class="sector-card"><div class="s-icon">🏭</div><h4>Manufacturing</h4><p>ERP systems, inventory management, quality control software</p></div>
+      <div class="sector-card"><div class="s-icon">🛒</div><h4>Retail & Commerce</h4><p>E-commerce platforms, POS systems, BNPL/installment payment tools</p></div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="#" class="btn-hero-primary" onclick="showPage('sectors'); return false;">View All Sectors</a>
+    </div>
+  </section>
+
+  <!-- WHY G7 -->
+  <section class="sec sec-alt">
+    <div class="sec-head">
+      <div class="eyebrow">Why Choose Us</div>
+      <div class="sec-title">The G7 Hitech Advantage</div>
+      <p class="sec-sub">We don't just implement technology — we become your long-term technology partner.</p>
+    </div>
+    <div class="card-grid-4">
+      <div class="card">
+        <div class="card-icon icon-blue">🌍</div>
+        <h3>Global Standards</h3>
+        <p>World-class solutions built to international standards, delivered with deep local knowledge and context.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">⚡</div>
+        <h3>End-to-End Service</h3>
+        <p>From strategy and development to deployment, maintenance, and device supply — we cover every step.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">🔒</div>
+        <h3>Security First</h3>
+        <p>Every solution we build has security built in from day one — not added as an afterthought.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🤝</div>
+        <h3>Dedicated Support</h3>
+        <p>Real people. Real support. On-site, remote, and around the clock for enterprise clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h2>Ready to Transform Your Organization with Technology?</h2>
+    <p>Join hundreds of organizations already powered by G7 Hitech Digital Solutions.</p>
+    <div class="cta-banner-btns">
+      <a href="#" class="btn-hero-primary" onclick="showPage('contact'); return false;">Get a Free Consultation</a>
+      <a href="#" class="btn-hero-outline" onclick="showPage('services'); return false;">Browse All Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <section class="sec">
+    <div class="sec-head">
+      <div class="eyebrow">About G7 Hitech</div>
+      <div class="sec-title">Built to Power the World's Most Critical Sectors</div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>G7 Hitech Digital Solutions is a world-class technology company providing comprehensive digital services across every major industry. We believe that every organization — regardless of size, sector, or location — deserves access to enterprise-grade technology solutions.</p>
+        <p>From our roots in Nigeria to our growing global footprint, we have built a reputation for delivering reliable, secure, and innovative tech solutions. Our team combines deep industry expertise with cutting-edge technical capability to transform how organizations operate in the digital age.</p>
+        <p>We are not just a technology vendor — we are your strategic technology partner. Whether you need a hospital management system, a banking platform, a government portal, a cybersecurity overhaul, or simply a reliable partner to supply and maintain your devices, G7 Hitech is your one-stop destination.</p>
+        <ul class="value-list">
+          <li><div class="v-dot"></div><div><h4>Our Mission</h4><p>To deliver world-class technology solutions that empower organizations of every size and sector to operate securely, efficiently, and at global standards.</p></div></li>
+          <li><div class="v-dot"></div><div><h4>Our Vision</h4><p>A world where every organization — from a rural hospital to a global bank — has equal access to transformative technology.</p></div></li>
+          <li><div class="v-dot"></div><div><h4>Our Commitment</h4><p>Integrity, innovation, and excellence in every engagement — from the first consultation to ongoing support.</p></div></li>
+        </ul>
+        <a href="#" class="btn-nav-solid" style="display:inline-block;margin-top:1.75rem;padding:.85rem 2rem;border-radius:8px;font-size:.9rem;" onclick="showPage('contact'); return false;">Work With Us</a>
+      </div>
+      <div>
+        <div class="about-panel">
+          <h3>Our Global Reach</h3>
+          <div class="reach-grid">
+            <div class="reach-item"><div class="reach-val">20+</div><div class="reach-label">Sectors Served</div></div>
+            <div class="reach-item"><div class="reach-val">500+</div><div class="reach-label">Organizations</div></div>
+            <div class="reach-item"><div class="reach-val">10+</div><div class="reach-label">Years Experience</div></div>
+            <div class="reach-item"><div class="reach-val">24/7</div><div class="reach-label">Support Available</div></div>
+          </div>
+          <div class="about-tagline">
+            From healthcare to agriculture, banking to education, manufacturing to government — G7 Hitech has delivered technology solutions that make a measurable difference in how organizations serve their people.
+          </div>
+        </div>
+        <div class="card" style="margin-top:1.25rem;">
+          <div class="card-icon icon-gold">🏆</div>
+          <h3>Why Organizations Choose G7 Hitech</h3>
+          <p style="font-size:.85rem;color:var(--gray);line-height:1.7;">We combine global tech standards with deep local understanding. We speak the language of your industry, understand your challenges, and build solutions that actually work in your environment — not just in theory.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════
+     SERVICES
+══════════════════════════════════════ -->
+<div class="page" id="page-services">
+  <section class="sec">
+    <div class="sec-head">
+      <div class="eyebrow">Our Services</div>
+      <div class="sec-title">Full-Spectrum Technology Services</div>
+      <p class="sec-sub">Every service your organization needs — under one roof, delivered by experts.</p>
+    </div>
+
+    <div class="service-cat">
+      <div class="service-cat-head">
+        <div class="service-cat-icon">💻</div>
+        <div><h3>Software & Web Development</h3><p class="cat-sub">Custom digital products built to solve your organization's specific challenges — from patient management systems to banking portals to agricultural platforms.</p></div>
+      </div>
+      <div class="service-list">
+        <span class="service-tag">Custom Web Applications</span>
+        <span class="service-tag">Mobile App Development</span>
+        <span class="service-tag">Enterprise Portals</span>
+        <span class="service-tag">E-Commerce Platforms</span>
+        <span class="service-tag">BNPL / Installment Systems</span>
+        <span class="service-tag">Hospital Management Systems</span>
+        <span class="service-tag">School Management Platforms</span>
+        <span class="service-tag">Banking & Fintech Solutions</span>
+        <span class="service-tag">API Integrations</span>
+        <span class="service-tag">Admin Dashboards</span>
+      </div>
+    </div>
+
+    <div class="service-cat">
+      <div class="service-cat-head">
+        <div class="service-cat-icon">🔐</div>
+        <div><h3>Cybersecurity Services</h3><p class="cat-sub">Protecting your data, networks, and systems from modern threats with enterprise-grade security solutions tailored to your sector.</p></div>
+      </div>
+      <div class="service-list">
+        <span class="service-tag">Network Security</span>
+        <span class="service-tag">Vulnerability Assessment</span>
+        <span class="service-tag">Penetration Testing</span>
+        <span class="service-tag">Data Encryption</span>
+        <span class="service-tag">Security Audits</span>
+        <span class="service-tag">Incident Response</span>
+        <span class="service-tag">CCTV & Surveillance Systems</span>
+        <span class="service-tag">Access Control Systems</span>
+        <span class="service-tag">Security Policy Design</span>
+        <span class="service-tag">Threat Monitoring</span>
+      </div>
+    </div>
+
+    <div class="service-cat">
+      <div class="service-cat-head">
+        <div class="service-cat-icon gold">🛠️</div>
+        <div><h3>Device Repair & Maintenance</h3><p class="cat-sub">Professional repair and ongoing maintenance for all digital devices and IT equipment. Keeping your operations running without downtime.</p></div>
+      </div>
+      <div class="service-list">
+        <span class="service-tag gold-tag">Laptop Repair</span>
+        <span class="service-tag gold-tag">Desktop & PC Repair</span>
+        <span class="service-tag gold-tag">Server Maintenance</span>
+        <span class="service-tag gold-tag">Printer & Peripheral Repair</span>
+        <span class="service-tag gold-tag">Network Equipment Repair</span>
+        <span class="service-tag gold-tag">Screen Replacement</span>
+        <span class="service-tag gold-tag">Data Recovery</span>
+        <span class="service-tag gold-tag">OS Installation & Configuration</span>
+        <span class="service-tag gold-tag">Virus Removal</span>
+        <span class="service-tag gold-tag">Preventive Maintenance Contracts</span>
+      </div>
+    </div>
+
+    <div class="service-cat">
+      <div class="service-cat-head">
+        <div class="service-cat-icon gold">🖥️</div>
+        <div><h3>Device Sales & Supply</h3><p class="cat-sub">Quality laptops, computers, servers, and accessories for organizations — new, refurbished, and bulk enterprise procurement.</p></div>
+      </div>
+      <div class="service-list">
+        <span class="service-tag gold-tag">Laptops & Notebooks</span>
+        <span class="service-tag gold-tag">Desktop Computers</span>
+        <span class="service-tag gold-tag">Servers & Workstations</span>
+        <span class="service-tag gold-tag">Tablets & Mobile Devices</span>
+        <span class="service-tag gold-tag">Networking Equipment</span>
+        <span class="service-tag gold-tag">Printers & Scanners</span>
+        <span class="service-tag gold-tag">UPS & Power Solutions</span>
+        <span class="service-tag gold-tag">Computer Accessories</span>
+        <span class="service-tag gold-tag">Refurbished Devices</span>
+        <span class="service-tag gold-tag">Bulk Enterprise Procurement</span>
+      </div>
+    </div>
+
+    <div class="service-cat">
+      <div class="service-cat-head">
+        <div class="service-cat-icon">🎓</div>
+        <div><h3>Training, Coaching & IT Education</h3><p class="cat-sub">Comprehensive hands-on technology training for individuals, IT students, SIWES/NYSC participants, corporate staff, and institutions — building real-world digital skills from beginner to advanced level.</p></div>
+      </div>
+      <div class="service-list">
+        <span class="service-tag">Computer Coaching (Beginners to Advanced)</span>
+        <span class="service-tag">IT Student Training & Mentorship</span>
+        <span class="service-tag">SIWES Supervision & Training</span>
+        <span class="service-tag">NYSC IT Skill Development</span>
+        <span class="service-tag">Microsoft Office Suite Training</span>
+        <span class="service-tag">Web Design & Development Bootcamp</span>
+        <span class="service-tag">Programming & Coding Classes</span>
+        <span class="service-tag">Graphic Design Training</span>
+        <span class="service-tag">Cybersecurity Awareness Training</span>
+        <span class="service-tag">AI & Prompt Engineering Courses</span>
+        <span class="service-tag">Digital Literacy for Organizations</span>
+        <span class="service-tag">Networking & Hardware Training</span>
+        <span class="service-tag">Database Management Training</span>
+        <span class="service-tag">Corporate IT Staff Training</span>
+        <span class="service-tag">E-Commerce & Digital Business</span>
+        <span class="service-tag">Certificate Programs</span>
+      </div>
+    </div>
+
+    <div class="service-cat">
+      <div class="service-cat-head">
+        <div class="service-cat-icon">☁️</div>
+        <div><h3>IT Infrastructure & Managed Services</h3><p class="cat-sub">Comprehensive IT infrastructure setup, management, and ongoing support — so you can focus on your core business.</p></div>
+      </div>
+      <div class="service-list">
+        <span class="service-tag">Network Setup & Configuration</span>
+        <span class="service-tag">Cloud Migration</span>
+        <span class="service-tag">Server Room Setup</span>
+        <span class="service-tag">IT Help Desk Support</span>
+        <span class="service-tag">Managed IT Services</span>
+        <span class="service-tag">Backup & Disaster Recovery</span>
+        <span class="service-tag">VoIP & Communication Systems</span>
+        <span class="service-tag">Remote IT Support</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════
+     SECTORS
+══════════════════════════════════════ -->
+<div class="page" id="page-sectors">
+  <section class="sec">
+    <div class="sec-head">
+      <div class="eyebrow">Industries We Serve</div>
+      <div class="sec-title">Technology Solutions for Every Sector</div>
+      <p class="sec-sub">No matter your industry, G7 Hitech has the experience, tools, and expertise to deliver technology that works for your specific environment.</p>
+    </div>
+    <div class="card-grid-3">
+      <div class="card">
+        <div class="card-icon icon-blue">🏥</div>
+        <h3>Healthcare & Hospitals</h3>
+        <p>Hospital Management Systems, patient record platforms, telemedicine portals, medical device support, and health data security for clinics and hospitals.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">🏦</div>
+        <h3>Banking & Financial Services</h3>
+        <p>Core banking software support, fintech platform development, cybersecurity audits, payment gateway integration, and compliance tools for banks and microfinance institutions.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">🎓</div>
+        <h3>Education & Academia</h3>
+        <p>E-learning platforms, student portals, school management systems, digital classrooms, AI tutoring tools, and campus IT infrastructure for schools and universities.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🌾</div>
+        <h3>Agriculture</h3>
+        <p>Farm management software, cooperative commerce platforms, supply chain tracking, market access portals, and agri-fintech solutions for farmers and agribusinesses.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">🏛️</div>
+        <h3>Government & Public Sector</h3>
+        <p>E-governance platforms, citizen service portals, public records management, inter-agency IT systems, and government cybersecurity solutions.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🚀</div>
+        <h3>Startups & SMEs</h3>
+        <p>MVP development, business websites, digital marketing tools, payment integration, business plan documentation, and affordable IT setup for growing businesses.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">🏭</div>
+        <h3>Manufacturing & Industry</h3>
+        <p>ERP system integration, production monitoring dashboards, inventory management platforms, and industrial IT infrastructure and support.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🛒</div>
+        <h3>Retail & E-Commerce</h3>
+        <p>Online stores, POS systems, BNPL installment platforms, inventory software, and digital payment solutions for retailers of all sizes.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">🛢️</div>
+        <h3>Oil, Gas & Energy</h3>
+        <p>Asset management software, field data collection tools, compliance platforms, IT infrastructure, and cybersecurity for energy sector organizations.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">⚖️</div>
+        <h3>Legal & Professional Services</h3>
+        <p>Case management systems, secure document platforms, client portals, and digital transformation support for law firms and professional service organizations.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🏗️</div>
+        <h3>Construction & Real Estate</h3>
+        <p>Project management platforms, property listing portals, contractor management tools, and IT infrastructure for construction firms and real estate companies.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">✈️</div>
+        <h3>Aviation & Logistics</h3>
+        <p>Fleet management systems, logistics tracking platforms, supply chain software, and IT support for aviation and transport organizations.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h2>Don't See Your Sector? We Serve You Too.</h2>
+    <p>G7 Hitech works with any organization that needs technology to operate better. Let's talk about your specific needs.</p>
+    <div class="cta-banner-btns">
+      <a href="#" class="btn-hero-primary" onclick="showPage('contact'); return false;">Contact Us Today</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TRAINING
+══════════════════════════════════════ -->
+<div class="page" id="page-training">
+  <section class="sec">
+    <div class="sec-head">
+      <div class="eyebrow">Training & IT Education</div>
+      <div class="sec-title">Build Real Skills. Get Certified. Go Further.</div>
+      <p class="sec-sub">G7 Hitech offers hands-on technology training for individuals, IT students, SIWES participants, NYSC members, corporate teams, and institutions — from complete beginners to advanced professionals.</p>
+    </div>
+
+    <!-- COMPUTER COACHING -->
+    <div class="service-cat">
+      <div class="service-cat-head">
+        <div class="service-cat-icon">🖥️</div>
+        <div><h3>Computer Coaching & Basic IT Skills</h3><p class="cat-sub">Start from zero and build a solid foundation in computers and digital tools. Perfect for individuals, staff, and community members with little or no prior experience.</p></div>
+      </div>
+      <div class="service-list">
+        <span class="service-tag">Introduction to Computers</span>
+        <span class="service-tag">Keyboard & Mouse Mastery</span>
+        <span class="service-tag">Windows & Operating Systems</span>
+        <span class="service-tag">Microsoft Word</span>
+        <span class="service-tag">Microsoft Excel</span>
+        <span class="service-tag">Microsoft PowerPoint</span>
+        <span class="service-tag">Internet & Email Usage</span>
+        <span class="service-tag">File Management</span>
+        <span class="service-tag">Printing & Scanning</span>
+        <span class="service-tag">Basic Troubleshooting</span>
+      </div>
+    </div>
+
+    <!-- IT STUDENT TRAINING -->
+    <div class="service-cat">
+      <div class="service-cat-head">
+        <div class="service-cat-icon">📚</div>
+        <div><h3>IT Student Training & Mentorship</h3><p class="cat-sub">Structured programs for polytechnic and university IT students preparing for the real world. We bridge the gap between academic theory and industry practice.</p></div>
+      </div>
+      <div class="service-list">
+        <span class="service-tag">Programming Fundamentals (Python, JavaScript)</span>
+        <span class="service-tag">Web Design & Development</span>
+        <span class="service-tag">Database Management (MySQL, Access)</span>
+        <span class="service-tag">Networking Basics</span>
+        <span class="service-tag">Computer Hardware & Assembly</span>
+        <span class="service-tag">Software Installation & Configuration</span>
+        <span class="service-tag">IT Project Execution</span>
+        <span class="service-tag">Technical Report Writing</span>
+        <span class="service-tag">Career Readiness & Portfolio Building</span>
+        <span class="service-tag">Industry Mentorship Sessions</span>
+      </div>
+    </div>
+
+    <!-- SIWES -->
+    <div class="service-cat">
+      <div class="service-cat-head">
+        <div class="service-cat-icon gold">🏫</div>
+        <div><h3>SIWES — Student Industrial Work Experience Scheme</h3><p class="cat-sub">G7 Hitech is an approved SIWES placement centre. We provide structured industrial training for IT and computer science students, with proper supervision, logbook signing, and hands-on practical exposure.</p></div>
+      </div>
+      <div class="service-list">
+        <span class="service-tag gold-tag">SIWES Placement & Attachment</span>
+        <span class="service-tag gold-tag">Logbook Signing & Supervision</span>
+        <span class="service-tag gold-tag">Daily Practical Training</span>
+        <span class="service-tag gold-tag">Hardware & Software Exposure</span>
+        <span class="service-tag gold-tag">Network & Systems Administration</span>
+        <span class="service-tag gold-tag">Web Development Practice</span>
+        <span class="service-tag gold-tag">IT Support & Helpdesk Training</span>
+        <span class="service-tag gold-tag">End-of-Placement Certificate</span>
+        <span class="service-tag gold-tag">Industry Reference Letter</span>
+      </div>
+    </div>
+
+    <!-- NYSC -->
+    <div class="service-cat">
+      <div class="service-cat-head">
+        <div class="service-cat-icon gold">🟢</div>
+        <div><h3>NYSC IT Skill Development</h3><p class="cat-sub">Purpose-built programs for NYSC corps members looking to upskill in technology during their service year and launch strong careers in the digital economy.</p></div>
+      </div>
+      <div class="service-list">
+        <span class="service-tag gold-tag">Tech Skills Bootcamp</span>
+        <span class="service-tag gold-tag">Freelancing & Digital Income</span>
+        <span class="service-tag gold-tag">Mobile App & Web Development</span>
+        <span class="service-tag gold-tag">Graphic Design</span>
+        <span class="service-tag gold-tag">Cybersecurity Essentials</span>
+        <span class="service-tag gold-tag">Digital Marketing</span>
+        <span class="service-tag gold-tag">AI Tools for Productivity</span>
+        <span class="service-tag gold-tag">Entrepreneurship & Startup Tech</span>
+      </div>
+    </div>
+
+    <!-- ADVANCED & PROFESSIONAL -->
+    <div class="service-cat">
+      <div class="service-cat-head">
+        <div class="service-cat-icon">🚀</div>
+        <div><h3>Advanced & Professional IT Training</h3><p class="cat-sub">For professionals, corporate teams, and organizations that want to level up their technical capability with industry-relevant, hands-on programs.</p></div>
+      </div>
+      <div class="service-list">
+        <span class="service-tag">Full-Stack Web Development</span>
+        <span class="service-tag">Cybersecurity & Ethical Hacking</span>
+        <span class="service-tag">Cloud Computing (AWS, Azure)</span>
+        <span class="service-tag">Network Engineering</span>
+        <span class="service-tag">AI & Machine Learning Basics</span>
+        <span class="service-tag">Data Analysis & Excel Advanced</span>
+        <span class="service-tag">Graphic Design (Photoshop, Canva)</span>
+        <span class="service-tag">Video Editing & Content Creation</span>
+        <span class="service-tag">Corporate IT Training Packages</span>
+        <span class="service-tag">Professional Certification Prep</span>
+      </div>
+    </div>
+
+    <!-- TRAINING HIGHLIGHTS CARDS -->
+    <div class="card-grid-4" style="margin-top:1rem;">
+      <div class="card">
+        <div class="card-icon icon-blue">📍</div>
+        <h3>On-Site & Online</h3>
+        <p>Training delivered at our centres, at your organization's location, or fully online — whatever works for you.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">📜</div>
+        <h3>Certificates Issued</h3>
+        <p>All completed programs come with a G7 Hitech certificate of participation or completion, recognized by employers.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-blue">👨‍🏫</div>
+        <h3>Expert Instructors</h3>
+        <p>Training delivered by experienced IT professionals with real-world industry backgrounds, not just theory.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🤝</div>
+        <h3>SIWES Approved</h3>
+        <p>Officially recognized for SIWES industrial attachment. Students get full supervision, logbook signing, and reference letters.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h2>Ready to Start Your IT Training Journey?</h2>
+    <p>Whether you're a complete beginner, an IT student on SIWES, or an organization training your team — G7 Hitech has the right program for you.</p>
+    <div class="cta-banner-btns">
+      <a href="#" class="btn-hero-primary" onclick="showPage('contact'); return false;">Enrol Now</a>
+      <a href="#" class="btn-hero-outline" onclick="showPage('services'); return false;">All Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <section class="sec">
+    <div class="sec-head">
+      <div class="eyebrow">Get In Touch</div>
+      <div class="sec-title">Let's Build Something Great Together</div>
+      <p class="sec-sub">Whether you're a hospital, a bank, a school, a startup, or any organization that needs technology — we're here to help.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="c-info-item">
+          <div class="c-icon">🌍</div>
+          <div><h4>Global Operations</h4><p>Headquartered in Nigeria · Serving clients worldwide</p></div>
+        </div>
+        <div class="c-info-item">
+          <div class="c-icon">💬</div>
+          <div><h4>WhatsApp & Chat</h4><p>Instant support via WhatsApp for quick enquiries</p></div>
+        </div>
+        <div class="c-info-item">
+          <div class="c-icon">📧</div>
+          <div><h4>Email</h4><p>info@g7hitechdigital.com</p></div>
+        </div>
+        <div class="c-info-item">
+          <div class="c-icon">🌐</div>
+          <div><h4>Website</h4><p>www.g7hitechdigital.com</p></div>
+        </div>
+        <div class="c-info-item">
+          <div class="c-icon">⏰</div>
+          <div><h4>Support Hours</h4><p>Mon – Fri: 8am – 6pm · Emergency: 24/7 for enterprise clients</p></div>
+        </div>
+        <div class="card" style="margin-top:1.5rem;background:var(--blue-pale);">
+          <div class="card-icon icon-blue">🏆</div>
+          <h3>Free Consultation</h3>
+          <p>Not sure which services you need? Our tech experts offer a free 30-minute consultation to assess your needs and recommend the right solutions.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="form-row-2" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+          <div class="form-group"><label>First Name</label><input type="text" id="c-fname" placeholder="First name"/></div>
+          <div class="form-group"><label>Last Name</label><input type="text" id="c-lname" placeholder="Last name"/></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="c-email" placeholder="your@organization.com"/></div>
+        <div class="form-group"><label>Organization / Company</label><input type="text" id="c-org" placeholder="Your organization name"/></div>
+        <div class="form-group">
+          <label>Industry / Sector</label>
+          <select id="c-sector">
+            <option value="">Select your sector...</option>
+            <option>Healthcare / Hospital</option>
+            <option>Banking & Finance</option>
+            <option>Education / Academia</option>
+            <option>Agriculture</option>
+            <option>Government / Public Sector</option>
+            <option>Startup / SME</option>
+            <option>Manufacturing</option>
+            <option>Retail / E-Commerce</option>
+            <option>Oil, Gas & Energy</option>
+            <option>Legal & Professional Services</option>
+            <option>Construction & Real Estate</option>
+            <option>Aviation & Logistics</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select id="c-service">
+            <option value="">Select a service...</option>
+            <option>Software / Web Development</option>
+            <option>Cybersecurity</option>
+            <option>Device Repair & Maintenance</option>
+            <option>Device Purchase / Supply</option>
+            <option>AI & Digital Transformation</option>
+            <option>IT Infrastructure & Cloud</option>
+            <option>Computer Coaching</option>
+            <option>SIWES Attachment / Placement</option>
+            <option>IT Student Training</option>
+            <option>NYSC IT Skill Program</option>
+            <option>Corporate Staff Training</option>
+            <option>Multiple Services</option>
+            <option>Not Sure — Need Consultation</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea id="c-message" placeholder="Describe your project, challenge, or question..."></textarea></div>
+        <button class="btn-submit" onclick="submitContact()">Send Message</button>
+        <div class="form-success" id="contact-success">
+          <h4>✅ Message Received!</h4>
+          <p>Thank you for reaching out. Our team will respond within 24 business hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="nav-logo-text" style="font-size:1.1rem;color:#fff;">G7<span style="color:var(--gold-light);">Hitech</span> Digital Solutions</div>
+      <p style="margin-top:.75rem;font-size:.83rem;line-height:1.75;">World-class technology solutions for healthcare, banking, education, agriculture, government, startups, and every sector in between. Serving organizations globally from our Nigerian base.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#" onclick="showPage('services'); return false;">Web Development</a>
+      <a href="#" onclick="showPage('services'); return false;">Cybersecurity</a>
+      <a href="#" onclick="showPage('services'); return false;">Device Repair</a>
+      <a href="#" onclick="showPage('services'); return false;">Device Sales</a>
+      <a href="#" onclick="showPage('training'); return false;">IT Training & SIWES</a>
+      <a href="#" onclick="showPage('services'); return false;">AI Solutions</a>
+    </div>
+    <div class="footer-col">
+      <h4>Sectors</h4>
+      <a href="#" onclick="showPage('sectors'); return false;">Healthcare</a>
+      <a href="#" onclick="showPage('sectors'); return false;">Banking</a>
+      <a href="#" onclick="showPage('sectors'); return false;">Education</a>
+      <a href="#" onclick="showPage('sectors'); return false;">Agriculture</a>
+      <a href="#" onclick="showPage('sectors'); return false;">Government</a>
+      <a href="#" onclick="showPage('sectors'); return false;">Startups & SMEs</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#" onclick="showPage('about'); return false;">About Us</a>
+      <a href="#" onclick="showPage('contact'); return false;">Contact</a>
+      <a href="#" onclick="showPage('contact'); return false;">Free Consultation</a>
+      <a href="#" onclick="showPage('services'); return false;">All Services</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 G7 Hitech Digital Solutions. All rights reserved.</p>
+    <div class="footer-badge">🌍 Serving the World from Nigeria</div>
+  </div>
+</footer>
+
+<!-- ══ WHATSAPP FLOAT ══ -->
+<a class="wa-float" href="https://wa.me/2348000000000" target="_blank" rel="noopener" title="Chat on WhatsApp">💬</a>
+<div class="wa-tooltip">Chat with us on WhatsApp</div>
+
+<!-- ══════════════════════════════════════
+     GALLERY PAGE
+══════════════════════════════════════ -->
+<div class="page" id="page-gallery">
+  <section class="sec">
+    <div class="sec-head">
+      <div class="eyebrow">Our Work</div>
+      <div class="sec-title">Projects, Solutions & Achievements</div>
+      <p class="sec-sub">A showcase of the digital solutions, training programs, and technology projects delivered by G7 Hitech across sectors worldwide.</p>
+    </div>
+
+    <div class="gallery-tabs">
+      <button class="g-tab active" onclick="filterGallery('all', this)">All Projects</button>
+      <button class="g-tab" onclick="filterGallery('web', this)">Web & Apps</button>
+      <button class="g-tab" onclick="filterGallery('security', this)">Security</button>
+      <button class="g-tab" onclick="filterGallery('training', this)">Training</button>
+      <button class="g-tab" onclick="filterGallery('hardware', this)">Hardware & Devices</button>
+      <button class="g-tab" onclick="filterGallery('community', this)">Community</button>
+    </div>
+
+    <div class="gallery-grid" id="gallery-grid">
+
+      <div class="gallery-item" data-cat="web">
+        <div class="gallery-thumb" style="background:linear-gradient(135deg,#EEF2FF,#C7D2FE);">
+          🏥
+          <div class="g-overlay">🔍 View Project</div>
+        </div>
+        <div class="gallery-info">
+          <span class="g-badge blue">Web & Apps</span>
+          <h4>Hospital Management System</h4>
+          <p>Full patient records, appointment booking, billing, and pharmacy modules for a Nigerian clinic network.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="web">
+        <div class="gallery-thumb" style="background:linear-gradient(135deg,#FDF6E3,#FDE68A);">
+          🏦
+          <div class="g-overlay">🔍 View Project</div>
+        </div>
+        <div class="gallery-info">
+          <span class="g-badge gold">Web & Apps</span>
+          <h4>Microfinance Banking Portal</h4>
+          <p>Loan management, customer onboarding, repayment tracking, and admin dashboard for a microfinance institution.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="web">
+        <div class="gallery-thumb" style="background:linear-gradient(135deg,#EEF2FF,#A5B4FC);">
+          🛒
+          <div class="g-overlay">🔍 View Project</div>
+        </div>
+        <div class="gallery-info">
+          <span class="g-badge blue">Web & Apps</span>
+          <h4>BNPL E-Commerce Platform</h4>
+          <p>Buy-now-pay-later installment shopping platform with Paystack integration, built for the Nigerian retail market.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="web">
+        <div class="gallery-thumb" style="background:linear-gradient(135deg,#F0FDF4,#86EFAC);">
+          🌾
+          <div class="g-overlay">🔍 View Project</div>
+        </div>
+        <div class="gallery-info">
+          <span class="g-badge blue">Web & Apps</span>
+          <h4>WiiFarm Cooperative Commerce Platform</h4>
+          <p>Community commerce platform connecting farmers, cooperatives, and buyers across Nigeria's agricultural sector.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="security">
+        <div class="gallery-thumb" style="background:linear-gradient(135deg,#FEF2F2,#FCA5A5);">
+          🔐
+          <div class="g-overlay">🔍 View Project</div>
+        </div>
+        <div class="gallery-info">
+          <span class="g-badge blue">Security</span>
+          <h4>Corporate Network Security Audit</h4>
+          <p>End-to-end vulnerability assessment and network hardening for a Lagos-based financial services firm.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="security">
+        <div class="gallery-thumb" style="background:linear-gradient(135deg,#EEF2FF,#818CF8);">
+          📷
+          <div class="g-overlay">🔍 View Project</div>
+        </div>
+        <div class="gallery-info">
+          <span class="g-badge blue">Security</span>
+          <h4>CCTV & Access Control Installation</h4>
+          <p>32-camera CCTV system with biometric access control deployed across a government office complex.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="training">
+        <div class="gallery-thumb" style="background:linear-gradient(135deg,#FDF6E3,#F0C040);">
+          🎓
+          <div class="g-overlay">🔍 View Project</div>
+        </div>
+        <div class="gallery-info">
+          <span class="g-badge gold">Training</span>
+          <h4>SIWES Industrial Training Program</h4>
+          <p>Structured 6-month industrial attachment program for IT students with daily practical sessions and mentorship.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="training">
+        <div class="gallery-thumb" style="background:linear-gradient(135deg,#EEF2FF,#6EE7B7);">
+          🤖
+          <div class="g-overlay">🔍 View Project</div>
+        </div>
+        <div class="gallery-info">
+          <span class="g-badge gold">Training</span>
+          <h4>AI Literacy Course (25 Lessons)</h4>
+          <p>Interactive browser-based AI prompting course with quizzes, progress tracking, and completion certificates.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="training">
+        <div class="gallery-thumb" style="background:linear-gradient(135deg,#FDF6E3,#FDE68A);">
+          👩‍💻
+          <div class="g-overlay">🔍 View Project</div>
+        </div>
+        <div class="gallery-info">
+          <span class="g-badge gold">Training</span>
+          <h4>Corporate Staff Digital Training</h4>
+          <p>Full Microsoft Office and digital tools training program delivered on-site for a 60-person corporate team.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="hardware">
+        <div class="gallery-thumb" style="background:linear-gradient(135deg,#F8FAFC,#CBD5E1);">
+          🖥️
+          <div class="g-overlay">🔍 View Project</div>
+        </div>
+        <div class="gallery-info">
+          <span class="g-badge blue">Hardware & Devices</span>
+          <h4>School Computer Lab Setup</h4>
+          <p>Supply, installation, and configuration of 40 desktop computers for a secondary school computer lab in Abuja.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="hardware">
+        <div class="gallery-thumb" style="background:linear-gradient(135deg,#EEF2FF,#BFDBFE);">
+          🛠️
+          <div class="g-overlay">🔍 View Project</div>
+        </div>
+        <div class="gallery-info">
+          <span class="g-badge blue">Hardware & Devices</span>
+          <h4>Enterprise Laptop Repair Contract</h4>
+          <p>Ongoing maintenance and repair contract covering 150+ devices for a telecommunications company.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="community">
+        <div class="gallery-thumb" style="background:linear-gradient(135deg,#F0FDF4,#A7F3D0);">
+          🤝
+          <div class="g-overlay">🔍 View Project</div>
+        </div>
+        <div class="gallery-info">
+          <span class="g-badge gold">Community</span>
+          <h4>Girls Digital Empowerment Program</h4>
+          <p>Community orientation and digital literacy program designed for young women in Nigerian local communities.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h2>Have a Project in Mind?</h2>
+    <p>Join the growing list of organizations powered by G7 Hitech Digital Solutions.</p>
+    <div class="cta-banner-btns">
+      <a href="#" class="btn-hero-primary" onclick="showPage('contact'); return false;">Start Your Project</a>
+      <a href="#" class="btn-hero-outline" onclick="showPage('services'); return false;">View All Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PRICING PAGE
+══════════════════════════════════════ -->
+<div class="page" id="page-pricing">
+  <section class="sec">
+    <div class="sec-head">
+      <div class="eyebrow">Pricing & Packages</div>
+      <div class="sec-title">Transparent Pricing for Every Need</div>
+      <p class="sec-sub">Flexible packages for individuals, businesses, and institutions. All prices in Nigerian Naira. Custom quotes available for enterprise projects.</p>
+    </div>
+
+    <!-- CATEGORY SWITCHER -->
+    <div class="pricing-cats">
+      <button class="p-cat-btn active" onclick="showPricing('training', this)">Training & Coaching</button>
+      <button class="p-cat-btn" onclick="showPricing('web', this)">Web & Software</button>
+      <button class="p-cat-btn" onclick="showPricing('security', this)">Security</button>
+      <button class="p-cat-btn" onclick="showPricing('devices', this)">Devices & Repairs</button>
+      <button class="p-cat-btn" onclick="showPricing('support', this)">IT Support</button>
+    </div>
+
+    <!-- TRAINING PRICING -->
+    <div id="pricing-training" class="pricing-section">
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Starter</h3>
+          <p class="price-desc">For beginners learning computer basics and Microsoft Office</p>
+          <div><span class="price-currency">₦</span><span class="price-amount">15,000</span></div>
+          <p class="price-period">per month · 2 sessions/week</p>
+          <ul class="price-features">
+            <li class="price-feature">Computer basics & typing</li>
+            <li class="price-feature">Microsoft Word & Excel</li>
+            <li class="price-feature">Internet & email usage</li>
+            <li class="price-feature">Completion certificate</li>
+            <li class="price-feature no">Programming or coding</li>
+            <li class="price-feature no">Advanced software tools</li>
+          </ul>
+          <button class="btn-price-outline" onclick="showPage('contact'); return false;">Enrol Now</button>
+        </div>
+        <div class="price-card featured">
+          <div class="featured-badge">⭐ Most Popular</div>
+          <h3>Professional</h3>
+          <p class="price-desc">For IT students, SIWES participants & career changers</p>
+          <div><span class="price-currency">₦</span><span class="price-amount">35,000</span></div>
+          <p class="price-period">per month · 3 sessions/week</p>
+          <ul class="price-features">
+            <li class="price-feature">All Starter content</li>
+            <li class="price-feature">Web design & development</li>
+            <li class="price-feature">Programming basics</li>
+            <li class="price-feature">Networking fundamentals</li>
+            <li class="price-feature">SIWES logbook signing</li>
+            <li class="price-feature">Industry reference letter</li>
+          </ul>
+          <button class="btn-price-primary" onclick="showPage('contact'); return false;">Enrol Now</button>
+        </div>
+        <div class="price-card">
+          <h3>Advanced</h3>
+          <p class="price-desc">For professionals and corporate teams needing deep skills</p>
+          <div><span class="price-currency">₦</span><span class="price-amount">60,000</span></div>
+          <p class="price-period">per month · 4 sessions/week</p>
+          <ul class="price-features">
+            <li class="price-feature">All Professional content</li>
+            <li class="price-feature">Full-stack development</li>
+            <li class="price-feature">Cybersecurity basics</li>
+            <li class="price-feature">AI & automation tools</li>
+            <li class="price-feature">Project portfolio building</li>
+            <li class="price-feature">Career placement support</li>
+          </ul>
+          <button class="btn-price-outline" onclick="showPage('contact'); return false;">Enrol Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEB PRICING -->
+    <div id="pricing-web" class="pricing-section" style="display:none;">
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Basic Website</h3>
+          <p class="price-desc">For small businesses, individuals & landing pages</p>
+          <div><span class="price-currency">₦</span><span class="price-amount">80,000</span></div>
+          <p class="price-period">one-time · delivered in 7–14 days</p>
+          <ul class="price-features">
+            <li class="price-feature">Up to 5 pages</li>
+            <li class="price-feature">Mobile responsive design</li>
+            <li class="price-feature">Contact form</li>
+            <li class="price-feature">1 month free support</li>
+            <li class="price-feature no">Admin dashboard</li>
+            <li class="price-feature no">Payment integration</li>
+          </ul>
+          <button class="btn-price-outline" onclick="showPage('contact'); return false;">Get a Quote</button>
+        </div>
+        <div class="price-card featured">
+          <div class="featured-badge">⭐ Best Value</div>
+          <h3>Business Platform</h3>
+          <p class="price-desc">For SMEs, schools, hospitals & growing organizations</p>
+          <div><span class="price-currency">₦</span><span class="price-amount">250,000</span></div>
+          <p class="price-period">one-time · delivered in 3–6 weeks</p>
+          <ul class="price-features">
+            <li class="price-feature">Unlimited pages</li>
+            <li class="price-feature">Admin dashboard</li>
+            <li class="price-feature">Payment integration</li>
+            <li class="price-feature">User management</li>
+            <li class="price-feature">WhatsApp integration</li>
+            <li class="price-feature">3 months free support</li>
+          </ul>
+          <button class="btn-price-primary" onclick="showPage('contact'); return false;">Get a Quote</button>
+        </div>
+        <div class="price-card">
+          <h3>Enterprise Solution</h3>
+          <p class="price-desc">For large institutions, banks, hospitals & government</p>
+          <div><span class="price-currency" style="font-size:.9rem;">Custom</span></div>
+          <p class="price-period">quoted per project requirements</p>
+          <ul class="price-features">
+            <li class="price-feature">Full custom development</li>
+            <li class="price-feature">Multi-module systems</li>
+            <li class="price-feature">API & third-party integrations</li>
+            <li class="price-feature">Security & compliance</li>
+            <li class="price-feature">Dedicated project manager</li>
+            <li class="price-feature">12 months support SLA</li>
+          </ul>
+          <button class="btn-price-outline" onclick="showPage('contact'); return false;">Request Quote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECURITY PRICING -->
+    <div id="pricing-security" class="pricing-section" style="display:none;">
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Security Audit</h3>
+          <p class="price-desc">One-time assessment for SMEs and institutions</p>
+          <div><span class="price-currency">₦</span><span class="price-amount">120,000</span></div>
+          <p class="price-period">one-time · report delivered in 5 days</p>
+          <ul class="price-features">
+            <li class="price-feature">Network vulnerability scan</li>
+            <li class="price-feature">Security risk report</li>
+            <li class="price-feature">Recommendations document</li>
+            <li class="price-feature">Follow-up consultation</li>
+            <li class="price-feature no">Implementation support</li>
+            <li class="price-feature no">Ongoing monitoring</li>
+          </ul>
+          <button class="btn-price-outline" onclick="showPage('contact'); return false;">Get a Quote</button>
+        </div>
+        <div class="price-card featured">
+          <div class="featured-badge">⭐ Recommended</div>
+          <h3>Security Package</h3>
+          <p class="price-desc">Audit + implementation for complete protection</p>
+          <div><span class="price-currency">₦</span><span class="price-amount">350,000</span></div>
+          <p class="price-period">one-time setup + monthly monitoring</p>
+          <ul class="price-features">
+            <li class="price-feature">Full security audit</li>
+            <li class="price-feature">Network hardening</li>
+            <li class="price-feature">Firewall configuration</li>
+            <li class="price-feature">Staff security training</li>
+            <li class="price-feature">CCTV system setup</li>
+            <li class="price-feature">3 months monitoring</li>
+          </ul>
+          <button class="btn-price-primary" onclick="showPage('contact'); return false;">Get a Quote</button>
+        </div>
+        <div class="price-card">
+          <h3>Enterprise Security</h3>
+          <p class="price-desc">For banks, hospitals & government institutions</p>
+          <div><span class="price-currency" style="font-size:.9rem;">Custom</span></div>
+          <p class="price-period">quoted per scope & organization size</p>
+          <ul class="price-features">
+            <li class="price-feature">Full penetration testing</li>
+            <li class="price-feature">Compliance assessment</li>
+            <li class="price-feature">Incident response plan</li>
+            <li class="price-feature">24/7 threat monitoring</li>
+            <li class="price-feature">Access control systems</li>
+            <li class="price-feature">Dedicated security team</li>
+          </ul>
+          <button class="btn-price-outline" onclick="showPage('contact'); return false;">Request Quote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEVICES PRICING -->
+    <div id="pricing-devices" class="pricing-section" style="display:none;">
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Device Repairs</h3>
+          <p class="price-desc">Professional repair for laptops, desktops & accessories</p>
+          <div><span class="price-currency">₦</span><span class="price-amount">5,000</span></div>
+          <p class="price-period">starting from · varies by fault</p>
+          <ul class="price-features">
+            <li class="price-feature">Laptop screen replacement</li>
+            <li class="price-feature">Virus removal & cleanup</li>
+            <li class="price-feature">OS installation</li>
+            <li class="price-feature">Battery replacement</li>
+            <li class="price-feature">Keyboard replacement</li>
+            <li class="price-feature">Data recovery (from ₦15,000)</li>
+          </ul>
+          <button class="btn-price-outline" onclick="showPage('contact'); return false;">Book Repair</button>
+        </div>
+        <div class="price-card featured">
+          <div class="featured-badge">⭐ Best Deal</div>
+          <h3>Maintenance Contract</h3>
+          <p class="price-desc">Monthly IT maintenance for businesses & institutions</p>
+          <div><span class="price-currency">₦</span><span class="price-amount">50,000</span></div>
+          <p class="price-period">per month · up to 20 devices</p>
+          <ul class="price-features">
+            <li class="price-feature">Monthly device checkup</li>
+            <li class="price-feature">Software updates</li>
+            <li class="price-feature">Virus protection</li>
+            <li class="price-feature">Priority repair response</li>
+            <li class="price-feature">Remote support included</li>
+            <li class="price-feature">Quarterly report</li>
+          </ul>
+          <button class="btn-price-primary" onclick="showPage('contact'); return false;">Get Started</button>
+        </div>
+        <div class="price-card">
+          <h3>Device Supply</h3>
+          <p class="price-desc">Laptops, desktops & equipment for organizations</p>
+          <div><span class="price-currency" style="font-size:.9rem;">Market Price</span></div>
+          <p class="price-period">new, refurbished & bulk orders</p>
+          <ul class="price-features">
+            <li class="price-feature">Quality UK/US used laptops</li>
+            <li class="price-feature">Brand new devices</li>
+            <li class="price-feature">Bulk discounts available</li>
+            <li class="price-feature">Warranty included</li>
+            <li class="price-feature">Delivery nationwide</li>
+            <li class="price-feature">Pre-configured setup</li>
+          </ul>
+          <button class="btn-price-outline" onclick="showPage('contact'); return false;">Get a Quote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- IT SUPPORT PRICING -->
+    <div id="pricing-support" class="pricing-section" style="display:none;">
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Basic Support</h3>
+          <p class="price-desc">Remote IT support for small businesses</p>
+          <div><span class="price-currency">₦</span><span class="price-amount">25,000</span></div>
+          <p class="price-period">per month</p>
+          <ul class="price-features">
+            <li class="price-feature">Remote support (business hours)</li>
+            <li class="price-feature">Email & WhatsApp helpdesk</li>
+            <li class="price-feature">Software troubleshooting</li>
+            <li class="price-feature">Up to 10 devices</li>
+            <li class="price-feature no">On-site visits</li>
+            <li class="price-feature no">24/7 emergency support</li>
+          </ul>
+          <button class="btn-price-outline" onclick="showPage('contact'); return false;">Get Started</button>
+        </div>
+        <div class="price-card featured">
+          <div class="featured-badge">⭐ Most Popular</div>
+          <h3>Business Support</h3>
+          <p class="price-desc">Full IT support for growing organizations</p>
+          <div><span class="price-currency">₦</span><span class="price-amount">75,000</span></div>
+          <p class="price-period">per month</p>
+          <ul class="price-features">
+            <li class="price-feature">Remote + on-site support</li>
+            <li class="price-feature">2 on-site visits/month</li>
+            <li class="price-feature">Up to 50 devices</li>
+            <li class="price-feature">Network monitoring</li>
+            <li class="price-feature">Hardware procurement support</li>
+            <li class="price-feature">Monthly IT health report</li>
+          </ul>
+          <button class="btn-price-primary" onclick="showPage('contact'); return false;">Get Started</button>
+        </div>
+        <div class="price-card">
+          <h3>Enterprise Support</h3>
+          <p class="price-desc">Dedicated IT support for large institutions</p>
+          <div><span class="price-currency" style="font-size:.9rem;">Custom</span></div>
+          <p class="price-period">tailored to your organization</p>
+          <ul class="price-features">
+            <li class="price-feature">Dedicated support engineer</li>
+            <li class="price-feature">24/7 emergency response</li>
+            <li class="price-feature">Unlimited devices</li>
+            <li class="price-feature">On-site as needed</li>
+            <li class="price-feature">SLA guarantee</li>
+            <li class="price-feature">Strategic IT planning</li>
+          </ul>
+          <button class="btn-price-outline" onclick="showPage('contact'); return false;">Request Quote</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="pricing-note">All prices are starting rates in Nigerian Naira (₦). Final pricing depends on project scope. <a href="#" onclick="showPage('contact'); return false;" style="color:var(--blue);font-weight:600;">Contact us</a> for a free custom quote.</p>
+  </section>
+</div>
+
+<script>
+  const PAGES = ['home','about','services','sectors','training','gallery','pricing','contact'];
+
+  function showPage(id) {
+    PAGES.forEach(p => {
+      document.getElementById('page-' + p).classList.remove('active');
+      const n = document.getElementById('nav-' + p);
+      if (n) n.classList.remove('active');
+    });
+    document.getElementById('page-' + id).classList.add('active');
+    const navEl = document.getElementById('nav-' + id);
+    if (navEl) navEl.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleMenu() {
+    const m = document.getElementById('mobile-menu');
+    m.style.display = m.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function submitContact() {
+    const fname = document.getElementById('c-fname').value.trim();
+    const email = document.getElementById('c-email').value.trim();
+    if (!fname || !email) { alert('Please fill in your name and email.'); return; }
+    document.getElementById('contact-success').classList.add('show');
+    ['c-fname','c-lname','c-email','c-org','c-message'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('c-sector').value = '';
+    document.getElementById('c-service').value = '';
+  }
+
+  function filterGallery(cat, btn) {
+    document.querySelectorAll('.g-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
+    });
+  }
+
+  function showPricing(cat, btn) {
+    document.querySelectorAll('.p-cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.pricing-section').forEach(s => s.style.display = 'none');
+    document.getElementById('pricing-' + cat).style.display = 'block';
+  }
+
+  // WhatsApp tooltip auto-show after 3s
+  setTimeout(() => {
+    const tip = document.querySelector('.wa-tooltip');
+    if (tip) { tip.classList.add('show'); setTimeout(() => tip.classList.remove('show'), 4000); }
+  }, 3000);
+</script>
+</body>
+</html>
